@@ -11,6 +11,8 @@ export default function VolumeData() {
   // const { query } = useRouter();
   // const { slug } = query;
   const { slug } = useRouter().query;
+  // const router = useRouter()
+  // const slug = router.query.slug
   // -> destructuring the object: equivalent to const slug = useRouter().query.slug;
   //
   //
@@ -19,6 +21,7 @@ export default function VolumeData() {
   // IMPORTANT TO ADD: Ensures the page doesn’t try to run before it knows which slug to use
   // Wait until slug is loaded (during first render)
   // Otherwise shows an error
+  // Alternative way: optional chaining with using ? (eg. volume?.title)
   if (!slug) return <div>Loading...</div>;
 
   const volume = volumes.find(({ slug: volSlug }) => volSlug === slug);
